@@ -29,10 +29,7 @@
   // type-specific properties.
   function loadProps(item) {
     
-    $('#dateTimeCreated').text(item.dateTimeCreated.toLocaleString());
-    $('#dateTimeModified').text(item.dateTimeModified.toLocaleString());
-    $('#itemClass').text(item.itemClass);
-    $('#itemId').text(item.itemId);
+
     $('#itemType').text(item.itemType);
     
     item.body.getAsync('html', function(result){
@@ -47,15 +44,30 @@
       }
     });
     
+    item.start.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#start').text(result.value.toLocaleString());
+      }
+    });
+
+    item.end.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#end').text(result.value.toLocaleString());
+      }
+    });
+
+    item.subject.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#appt-subject').text(result.value);
+      }
+    });
+
     $('#appt-attachments').html(buildAttachmentsString(item.attachments));
-    $('#end').text(item.end.toLocaleString());
     $('#location').text(item.location);
     $('#appt-normalizedSubject').text(item.normalizedSubject);
     $('#optionalAttendees').html(buildEmailAddressesString(item.optionalAttendees));
     $('#requiredAttendees').html(buildEmailAddressesString(item.requiredAttendees));
     $('#resources').html(buildEmailAddressesString(item.resources));
-    $('#start').text(item.start.toLocaleString());
-    $('#appt-subject').text(item.subject);
   }
 
    
