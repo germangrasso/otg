@@ -47,14 +47,11 @@
       }
     });
     
-    $('#appointment-props').show();
-    
     $('#appt-attachments').html(buildAttachmentsString(item.attachments));
     $('#end').text(item.end.toLocaleString());
     $('#location').text(item.location);
     $('#appt-normalizedSubject').text(item.normalizedSubject);
     $('#optionalAttendees').html(buildEmailAddressesString(item.optionalAttendees));
-    $('#organizer').html(buildEmailAddressString(item.organizer));
     $('#requiredAttendees').html(buildEmailAddressesString(item.requiredAttendees));
     $('#resources').html(buildEmailAddressesString(item.resources));
     $('#start').text(item.start.toLocaleString());
