@@ -120,7 +120,7 @@
                     <bt:Image size="80" resid="icon80" />
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="messageReadTaskPaneUrl" />
+                    <SourceLocation resid="appointmentOrganizerTaskPaneUrl" />
                   </Action>
                 </Control>
               </Group>
@@ -167,6 +167,8 @@
         <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
         <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
         <bt:Url id="appointmentAttendeeTaskPaneUrl" DefaultValue="https://localhost:3000/ApptAttendee/AppointmentAttendeePanel.html"/>
+        <bt:Url id="appointmentOrganizerTaskPaneUrl" DefaultValue="https://localhost:3000/ApptOrganizer/AppointmentOrganizerPanel.html"/>
+        
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
