@@ -62,11 +62,26 @@
       }
     });
 
+    item.location.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#location').text(result.value);
+      }
+    });
+
+    item.requiredAttendees.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#requiredAttendees').html(buildEmailAddressesString(result.value));
+      }
+    });
+
+    item.optionalAttendees.getAsync({}, function(result){
+      if (result.status === 'succeeded') {
+        $('#optionalAttendees').html(buildEmailAddressesString(result.value));
+      }
+    });
+
     $('#appt-attachments').html(buildAttachmentsString(item.attachments));
-    $('#location').text(item.location);
     $('#appt-normalizedSubject').text(item.normalizedSubject);
-    $('#optionalAttendees').html(buildEmailAddressesString(item.optionalAttendees));
-    $('#requiredAttendees').html(buildEmailAddressesString(item.requiredAttendees));
     $('#resources').html(buildEmailAddressesString(item.resources));
   }
 
