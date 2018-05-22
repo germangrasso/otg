@@ -71,8 +71,6 @@
       <Host xsi:type="MailHost">
 
         <DesktopFormFactor>
-          <!-- Location of the Functions that UI-less buttons can trigger (ExecuteFunction Actions). -->
-          <FunctionFile resid="functionFile" />
 
           <!-- Message Read -->
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
@@ -192,7 +190,6 @@
         <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
         <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:3000/MessageRead/messageReadPanel.html"/>
         <bt:Url id="messageComposeTaskPaneUrl" DefaultValue="https://localhost:3000/MessageCompose/messageComposePanel.html"/>
         <bt:Url id="appointmentAttendeeTaskPaneUrl" DefaultValue="https://localhost:3000/ApptAttendee/AppointmentAttendeePanel.html"/>
