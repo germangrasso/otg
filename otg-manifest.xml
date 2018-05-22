@@ -102,6 +102,34 @@
             </OfficeTab>
           </ExtensionPoint>
 
+          <!-- Message Compose -->
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <!-- Use the default tab of the ExtensionPoint or create your own with <CustomTab id="myTab"> -->
+            <OfficeTab id="TabDefault">
+              <!-- Up to 6 Groups added per Tab -->
+              <Group id="msgComposeGroup">
+                <Label resid="groupLabel" />
+                <!-- Launch the add-in : task pane button -->
+                <Control xsi:type="Button" id="msgComposeOpenPaneButton">
+                  <Label resid="paneReadButtonLabel" />
+                  <Supertip>
+                    <Title resid="paneReadSuperTipTitle" />
+                    <Description resid="paneReadSuperTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon16" />
+                    <bt:Image size="32" resid="icon32" />
+                    <bt:Image size="80" resid="icon80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="messageComposeTaskPaneUrl" />
+                  </Action>
+                </Control>
+                <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
           <!-- Appointment organizer form -->
           <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
             <OfficeTab id="TabDefault">
@@ -166,9 +194,9 @@
       <bt:Urls>
         <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
         <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:3000/MessageRead/messageReadPanel.html"/>
+        <bt:Url id="messageComposeTaskPaneUrl" DefaultValue="https://localhost:3000/MessageCompose/messageComposePanel.html"/>
         <bt:Url id="appointmentAttendeeTaskPaneUrl" DefaultValue="https://localhost:3000/ApptAttendee/AppointmentAttendeePanel.html"/>
-        <bt:Url id="appointmentOrganizerTaskPaneUrl" DefaultValue="https://localhost:3000/ApptOrganizer/AppointmentOrganizerPanel.html"/>
-        
+        <bt:Url id="appointmentOrganizerTaskPaneUrl" DefaultValue="https://localhost:3000/ApptOrganizer/AppointmentOrganizerPanel.html"/>      
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
