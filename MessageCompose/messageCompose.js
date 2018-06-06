@@ -11,11 +11,25 @@
   Office.initialize = function (reason) {
     $(document).ready(function () {
       $('#run').click(run);
+
+      if (isPersistenceSupported()) {
+        // Set up ItemChanged event
+        Office.context.mailbox.addHandlerAsync(Office.EventType.ItemChanged, loadNewItem);
+      }
+
     });
   };
 
+  function isPersistenceSupported() {
+    // This feature is part of the preview 1.5 req set
+    // Since 1.5 isn't fully implemented, just check that the 
+    // method is defined.
+    // Once 1.5 is implemented, we can replace this with
+    // Office.context.requirements.isSetSupported('Mailbox', 1.5)
+    return Office.context.mailbox.addHandlerAsync !== undefined;
+  };
+
   function run() {
-    
     
     /**
      * Insert your Outlook code here
@@ -25,6 +39,10 @@
     
   }
 
+  function loadNewItem(eventArgs) {
+    loadProps(Office.context.mailbox.item);
+  };
+  
   // Load properties from the Item base object, then load the
   // type-specific properties.
   function loadProps(item) {
