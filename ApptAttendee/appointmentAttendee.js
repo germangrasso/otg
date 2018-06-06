@@ -55,6 +55,10 @@
     $('#requiredAttendees').html(buildEmailAddressesString(item.requiredAttendees));
     $('#resources').html(buildEmailAddressesString(item.resources));
     $('#start').text(item.start.toLocaleString());
+    $('#start-MED').text(moment(item.start).tz('America/Bogota').format('ddd, MMM Do YYYY, h:mm:ss a (z Z)'));
+    $('#start-EST').text(moment(item.start).tz('US/East').format('ddd, MMM Do YYYY, h:mm:ss a (z Z)'));
+    $('#start-PST').text(moment(item.start).tz('US/Pacific').format('ddd, MMM Do YYYY, h:mm:ss a (z Z)'));
+    $('#start-UK').text(moment(item.start).tz('Europe/London').format('ddd, MMM Do YYYY, h:mm:ss a (z Z)'));
     $('#appt-subject').text(item.subject);
   }
 
